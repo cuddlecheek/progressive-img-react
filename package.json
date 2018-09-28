@@ -1,6 +1,11 @@
 {
   "name": "progressive-img-react",
-  "description": "Custom react component to load img progressively and lazily. It first shows tiny blurred placeholder and loads full-sized image afterwards. It can also load image after click or entering viewport",
+  "author": "Marek Kadlčík",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cuddlecheek/progressive-img-react.git"
+  },
+  "description": "React component to load img progressively and lazily. It first shows tiny blurred placeholder and loads full-sized image afterwards. It can also load image after click or entering viewport",
   "main": "index.js",
   "keywords": [
     "progressive",
@@ -8,9 +13,9 @@
     "image",
     "img",
     "react component",
-    "element",
-    "html"
+    "jsx"
   ],
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
