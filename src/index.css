@@ -1,0 +1,68 @@
+@value defaultPlaceholderFilter: blur(10px) saturate(1.2);
+@value defaultPlaceholderScale: 1.1;
+@value defaultTransitionDuration: 0.2s;
+@value defaultTransitionTimingFunction: ease-in;
+
+:local(.container) {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+:local(.container img) {
+  display: block;
+  width: 100%;
+}
+
+:local(img.placeholder) {
+  filter: defaultPlaceholderFilter;
+  filter: var(--placeholder-filter);
+  transform: scale(defaultPlaceholderScale);
+  transform: scale(var(--placeholder-scale));
+  will-change: transform, filter;
+  transition-property: transform, filter;
+  transition-timing-function: linear;
+  transition-duration: calc(defaultTransitionDuration * 2);
+  transition-duration: calc(var(--transition-duration) * 2);
+}
+
+:local(img.large),
+:local(.loader) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+:local(img.large) {
+  opacity: 0;
+  will-change: opacity;
+  transition: defaultTransitionDuration opacity defaultTransitionTimingFunction;
+  transition: var(--transition-duration) opacity
+    var(--transition-timing-function);
+}
+
+:local(.loader) {
+  height: 100%;
+  z-index: 10;
+  opacity: 1;
+  will-change: opacity;
+  transition: calc(defaultTransitionDuration / 2) opacity ease-in;
+  transition: calc(var(--transition-duration) / 2) opacity ease-in;
+}
+
+:local(.container[loaded="true"] .placeholder) {
+  transform: scale(1);
+  position: absolute;
+}
+
+:local(.container[loaded="true"] .large) {
+  opacity: 1;
+  position: static;
+}
+
+:local(.container .loader[show="false"]) {
+  opacity: 0;
+}
